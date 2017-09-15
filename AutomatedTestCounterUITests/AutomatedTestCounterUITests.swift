@@ -29,6 +29,30 @@ class AutomatedTestCounterUITests: XCTestCase {
     }
     
     func testExample() {
+        let app = XCUIApplication()
+        let button = app.buttons["clickMe"]
+        
+        for _ in 1...100
+        {
+            button.tap()
+        }
+        
+        let myLabel = app.staticTexts["auto_label"]
+        
+        let labelText = myLabel.label
+        
+        let expectedCounter = String(100)
+        
+       if (labelText.contains (expectedCounter))
+       {
+        print("Test Passes")
+        } else
+       {
+        print("Test Failed")
+        }
+        sleep(5)
+        
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
